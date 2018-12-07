@@ -20,6 +20,9 @@ export class Subreddits extends React.Component {
 
     componentDidMount() {
         const items = JSON.parse(localStorage.getItem("tabs"));
+        if (!items) {
+            return;
+        }
         const panes = this.state.panes;
         for (let title of items) {
             if (title !== "r/news") {
